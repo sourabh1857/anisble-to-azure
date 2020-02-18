@@ -1,0 +1,8 @@
+---
+ - hosts: localhost
+   tasks:
+     - name: create public ip 
+       azure_rm_publicipaddress:
+         resource_group: ansible_to_azure
+         allocation_method: static
+         name: sourabhIP
