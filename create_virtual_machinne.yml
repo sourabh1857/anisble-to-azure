@@ -1,0 +1,20 @@
+---
+ - hosts: localhost
+   tasks:
+   - name: creating resource group 
+     azure_rm_resourcegroup:
+       name: ansible_to_azure
+       location: westus
+     register: vg
+   - debug:
+        var: vg
+   - name: Create a VM with a custom image
+     azure_rm_virtualmachine:
+       resource_group: ansible_to_azure
+       name: vm1
+       vm_size: Standard_DS1_v2
+       admin_username: adminUser
+       admin_password: password01
+       network_interfaces: testvm001
+       image:
+         os: Windows

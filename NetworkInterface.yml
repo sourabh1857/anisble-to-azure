@@ -1,0 +1,12 @@
+---
+ - hosts: localhost
+   tasks:
+     - name: create virtual networks interface card (NIC) for Azure
+       azure_rm_networkinterface:
+         resource_group: ansible_to_azure
+         name: myNIC
+         virtual_network: myVnet
+         subnet: sourabh_Subnet
+         public_ip_name: sourabh_IP
+         security_group: sourabh_SecurityGroup
+ 
