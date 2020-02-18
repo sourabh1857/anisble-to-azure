@@ -1,0 +1,15 @@
+---
+ - hosts: localhost
+   tasks:
+    - name: Create virtual network
+      azure_rm_virtualnetwork:
+        resource_group: ansible_to_azure
+        name: sourabh_Vnet
+        address_prefixes: "10.0.0.0/16"
+    
+    - name: Add subnet
+      azure_rm_subnet:
+        resource_group: ansible_to_azure
+        name: sourabh_Subnet
+        address_prefix: "10.0.1.0/24"
+        virtual_network: sourabh_Vnet
