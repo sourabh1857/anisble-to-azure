@@ -1,0 +1,8 @@
+---
+ - hosts: localhost
+   tasks:
+    - name: remove public IP 
+      azure_rm_publicipaddress:
+        resource_group: ansible_to_azure
+        name: sourabhIP
+        state: absent
